@@ -87,7 +87,7 @@ function NavBar() {
       ${
         sticky
           ? "sticky-navbar shadow-md bg-base-200 duration-300 transistion-all ease-in-out dark:bg-slate-900 dark:text-white dark:drop-shadow-2xl "
-          : ""
+          : "bg-base-200 shadow-md"
       }`}
       >
         <div className="navbar ">
@@ -136,7 +136,7 @@ function NavBar() {
               <label className="px-2 py-1 border rounded-lg flex items-center gap-2">
                 <input
                   type="text"
-                  className="grow outline-none dark:bg-slate-800 dark:text-white"
+                  className="grow outline-none dark:bg-slate-800 dark:text-white  bg-base-200"
                   placeholder="Search"
                 />
                 <svg
