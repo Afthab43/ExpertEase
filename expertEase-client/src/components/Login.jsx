@@ -38,7 +38,7 @@ function LoginOpen() {
               />
             </div>
 
-            <div>
+            <div className="mt-3 space-y-3">
                 <button className="mt-5 bg-indigo-800 hover:bg-indigo-600 text-white px-4 py-1 rounded-lg">Login</button>
                 <p className="mt-2">Not Registered? <Link className="underline dark:hover:text-lime-500" to='/signup'>Sign-up</Link> now to get started!</p>
             </div>

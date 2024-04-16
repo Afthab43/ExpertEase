@@ -86,7 +86,7 @@ function NavBar() {
         className={`max-w-screen-2xl container mx-auto md:px-20 px-4 md:fixed top-0 right-0 left-0 z-20 dark:bg-slate-800 dark:text-white
       ${
         sticky
-          ? "sticky-navbar shadow-md bg-base-200 duration-300 transistion-all ease-in-out dark:bg-slate-800 dark:text-white dark:border-b-2"
+          ? "sticky-navbar shadow-md bg-base-200 duration-300 transistion-all ease-in-out dark:bg-slate-900 dark:text-white dark:drop-shadow-2xl "
           : ""
       }`}
       >
