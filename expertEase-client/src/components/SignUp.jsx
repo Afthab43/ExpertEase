@@ -1,14 +1,16 @@
 import { IoChevronBackOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import LoginOpen from "./Login";
 
 
 function SignUp() {
+  let Loginhere = () => document.getElementById("my_modal_3").showModal();
   return (
     <>
-      <div className="flex flex-col md:flex-row max-w-screen-2xl container mx-auto md:px-20 px-4 gap-2 ">
+      <div className="flex  md:flex-row max-w-screen-2xl container mx-auto md:px-20 px-4 gap-2 ">
         <div className=" w-full md:w-1/2 ">
           <div>
-            <div className=" dark:bg-slate-800 dark:text-white  ">
+            <div className="bg-white text-black dark:bg-slate-800 dark:text-white  ">
               <form method="">
                 {/* if there is a button in form, it will close the modal */}
                 <Link
@@ -94,14 +96,15 @@ function SignUp() {
                 </button>
                 <p className="mt-2">
                   Already have an account?{" "}
-                  <Link
-                    className="underline dark:hover:text-lime-500"
-                    to="/login"
+                  <span
+                    className="underline dark:hover:text-lime-500 cursor-pointer hover:text-lime-500"
+                    onClick={Loginhere}
                   >
                     Log-in
-                  </Link>{" "}
+                  </span>{" "}
                   now to get started!
                 </p>
+                <LoginOpen/>
               </div>
             </div>
           </div>

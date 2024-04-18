@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link } from 'react-router-dom';
 
 function LoginOpen() {
@@ -8,8 +8,8 @@ function LoginOpen() {
         <div className="modal-box  dark:bg-slate-800 dark:text-white">
           <form method="dialog ">
             {/* if there is a button in form, it will close the modal */}
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-indigo-700">
-              ✕
+            <button >
+              <Link to='/' className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-indigo-700">✕</Link>
             </button>
           </form>
           <h3 className="font-bold font-serif text-indigo-700 hover:text-indigo-500 text-2xl">

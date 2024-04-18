@@ -54,7 +54,7 @@ function FreeCourses() {
             Courses
           </h1>
           <p className="font-serif">
-            Accessible Learning for All, Without Cost offers -a diverse array of
+            Accessible Learning for All, Without Cost offers a diverse array of
             high-quality courses at no charge, breaking barriers to education
             and providing opportunities for skill enhancement and personal
             growth.
