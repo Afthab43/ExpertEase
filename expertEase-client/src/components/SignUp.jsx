@@ -11,20 +11,22 @@ function SignUp() {
         <div className=" w-full md:w-1/2 ">
           <div>
             <div className="bg-white text-black dark:bg-slate-800 dark:text-white  ">
+              <div className="flex justify-between mt-3 md:px-16">
+              <h3 className="font-bold font-serif text-indigo-700 hover:text-indigo-500 text-2xl flex items-center justify-center">
+                Sign up
+              </h3>
               <form method="">
                 {/* if there is a button in form, it will close the modal */}
                 <Link
                   to="/"
-                  className="relative left-32 md:left-52 top-12  text-indigo-700  hover:text-indigo-500 flex items-center gap-3"
+                  className="md:left-52 top-12  text-indigo-700  hover:text-indigo-500 flex items-center gap-3"
                 >
                   <IoChevronBackOutline />{" "}
                   <h1 className="font-serif"> back to Home</h1>
                 </Link>
               </form>
-              <h3 className="font-bold font-serif text-indigo-700 hover:text-indigo-500 text-2xl flex items-center justify-center">
-                Sign up
-              </h3>
-              <div className="mt-4 font-serif flex justify-center flex-col items-center space-y-5">
+              </div>
+              <div className="mt-4 font-serif flex justify-center md:flex-col flex-col items-center space-y-5">
                 <div className="">
                   <label htmlFor="fname">First Name </label>
                   <br />
