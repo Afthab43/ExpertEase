@@ -34,6 +34,8 @@ function LoginOpen() {
                 className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
                 {...register("email", { required: true })}
               />
+              <br />
+              {errors.email && <span className='text-red-500 font-serif text-xs'>Email is required</span>}
             </div>
 
             <div className="mt-5">
@@ -46,13 +48,15 @@ function LoginOpen() {
                 className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
                 {...register("password", { required: true })}
               />
+              <br />
+              {errors.password && <span className='text-red-500 font-serif text-xs'>password field is required</span>}
             </div>
 
             <div className="mt-3 space-y-3">
                 <button className="mt-5 bg-indigo-800 hover:bg-indigo-600 text-white px-4 py-1 rounded-lg">Login</button>
                 <p className="mt-2">Not Registered? <Link className="underline dark:hover:text-lime-500" to='/signup'>Sign-up</Link> now to get started!</p>
             </div>
-            
+
           </div>
           </form>
         </div>
