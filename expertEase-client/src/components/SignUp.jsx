@@ -163,7 +163,7 @@ function SignUp() {
             </form>
           </>
         </div>
-        <div className="w-full md:w-1/2  ">
+        <div className=" md:w-1/2  ">
           <img
             className="md:mt-24 mt-4 hidden md:block md:h-[540px]  md:w-[490px]"
             src="https://images.pexels.com/photos/5088188/pexels-photo-5088188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
