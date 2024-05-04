@@ -115,7 +115,7 @@ function NavBar() {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52  dark:bg-slate-800 dark:text-white dark:border"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52  dark:bg-slate-800 dark:text-white dark:border "
               >
                 {navItems}
               </ul>
