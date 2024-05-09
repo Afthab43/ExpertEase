@@ -1,11 +1,13 @@
 import express from 'express' ;
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import learnRouter from './Routes/expertease.route.js';
 
 const app=express();
 
+app.use(cors());
 dotenv.config();
 
 const PORT=process.env.PORT || 4000;

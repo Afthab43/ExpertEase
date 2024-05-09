@@ -1,9 +1,9 @@
 import express from 'express';
 
 
-import { getDetails } from '../controller/expertease.controller.js';
+import { getCourseDetails } from '../controller/expertease.controller.js';
 
 const router = express.Router();
-router.get('/getdetails', getDetails);
+router.get('/getcourses', getCourseDetails);
 
 export default router;

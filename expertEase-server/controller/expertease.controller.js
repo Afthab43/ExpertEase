@@ -1,7 +1,7 @@
 import experteastCollection from '../model/expertease.model.js';
 
 
-export  const getDetails= async (req,res)=>{
+export  const getCourseDetails= async (req,res)=>{
     try {
         const getdata=await experteastCollection.find()
         res.status(200).json(getdata);
