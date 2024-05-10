@@ -4,10 +4,14 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 import learnRouter from './Routes/expertease.route.js';
+import userRouter from './Routes/user.route.js';
 
 const app=express();
 
 app.use(cors());
+
+app.use(express.json())
+
 dotenv.config();
 
 const PORT=process.env.PORT || 4000;
@@ -17,6 +21,8 @@ const MONGO_URI=process.env.MONGO_URI;
 //     res.send('heyyyyy  guyss! ')
 // });
 app.use('/learn',learnRouter);
+
+app.use('/user',userRouter);
 
 let startserver=async()=>{
     try {

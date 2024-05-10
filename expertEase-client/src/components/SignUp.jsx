@@ -126,7 +126,7 @@ function SignUp() {
                     )}
                   </div>
 
-                  <div className="">
+                  {/* <div className="">
                     <label htmlFor="cpass">Confirm Password </label>
                     <br />
                     <input
@@ -142,7 +142,7 @@ function SignUp() {
                         confirm is required
                       </span>
                     )}
-                  </div>
+                  </div> */}
 
                   <button className="mt-5 bg-indigo-800 hover:bg-indigo-600 text-white px-4 py-1 rounded-lg w-80 h-10">
                     Sign up

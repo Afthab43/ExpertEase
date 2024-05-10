@@ -19,12 +19,11 @@ function FreeCourses() {
           "http://localhost:4545/learn/getcourses"
         );
         console.log(response.data);
-        setFreeCourse(
-          response.data.filter(({ category }) => category === "Free")
+        const data = response.data.filter(
+          ({ category }) => category === "Free"
         );
-        console.log(
-          response.data.filter(({ category }) => category === "Free")
-        );
+        setFreeCourse(data);
+        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -41,7 +40,7 @@ function FreeCourses() {
     speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 3,
-    initialSlide: 0,
+    initialSlide: 2,
     responsive: [
       {
         breakpoint: 1024,
