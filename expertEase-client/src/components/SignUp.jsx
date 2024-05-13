@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import LoginOpen from "./Login";
 
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function SignUp() {
   const {
@@ -11,7 +12,29 @@ function SignUp() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  // const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      phone: data.phone,
+      email: data.email,
+      password: data.password,
+    };
+    // console.log(data);
+    await axios
+      .post("http://localhost:4545/user/signup", userInfo)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          alert("signup successfully");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Error : " + err);
+      });
+  };
 
   let Loginhere = () => document.getElementById("my_modal_3").showModal();
   return (
@@ -44,10 +67,10 @@ function SignUp() {
                       type="text"
                       placeholder="Enter your First Name"
                       className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
-                      {...register("fname", { required: true })}
+                      {...register("firstname", { required: true })}
                     />
                     <br />
-                    {errors.fname && (
+                    {errors.firstname && (
                       <span className="text-red-500 font-serif text-xs">
                         first name is required
                       </span>
@@ -62,10 +85,10 @@ function SignUp() {
                       type="text"
                       placeholder="Enter your Last Name"
                       className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
-                      {...register("lname", { required: true })}
+                      {...register("lastname", { required: true })}
                     />
                     <br />
-                    {errors.lname && (
+                    {errors.lastname && (
                       <span className="text-red-500 font-serif text-xs">
                         last name is required
                       </span>
@@ -80,10 +103,10 @@ function SignUp() {
                       type="number"
                       placeholder="Enter your Phone Number"
                       className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
-                      {...register("number", { required: true })}
+                      {...register("phone", { required: true })}
                     />
                     <br />
-                    {errors.number && (
+                    {errors.phone && (
                       <span className="text-red-500 font-serif text-xs">
                         contact number is required
                       </span>
@@ -116,10 +139,10 @@ function SignUp() {
                       type="password"
                       placeholder="Enter your password"
                       className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
-                      {...register("pass", { required: true })}
+                      {...register("password", { required: true })}
                     />
                     <br />
-                    {errors.pass && (
+                    {errors.password && (
                       <span className="text-red-500 font-serif text-xs">
                         password is required
                       </span>
