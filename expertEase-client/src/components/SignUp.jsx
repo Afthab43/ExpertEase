@@ -31,15 +31,18 @@ function SignUp() {
         }
       })
       .catch((err) => {
-        console.log(err);
-        alert("Error : " + err);
+        // alert("Error : " + err);
+        if (err.response) {
+          console.log(err);
+          alert("Error : " + err.response.data.message);
+        }
       });
   };
 
   let Loginhere = () => document.getElementById("my_modal_3").showModal();
   return (
     <>
-      <div className="flex  md:flex-row max-w-screen-2xl container mx-auto md:px-20 px-4 gap-2 ">
+      <div className="flex  md:flex-row max-w-screen-2xl container mx-auto md:px-20 px-4 gap-2 h-screen">
         <div className=" w-full md:w-1/2 ">
           <>
             <form onSubmit={handleSubmit(onSubmit)} method="">
