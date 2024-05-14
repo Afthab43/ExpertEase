@@ -12,7 +12,6 @@ function SignUp() {
     formState: { errors },
   } = useForm();
 
-  // const onSubmit = (data) => console.log(data);
   const onSubmit = async (data) => {
     const userInfo = {
       firstName: data.firstName,
@@ -21,7 +20,8 @@ function SignUp() {
       email: data.email,
       password: data.password,
     };
-    // console.log(data);
+    console.log(data);
+    console.log(userInfo);
     await axios
       .post("http://localhost:4545/user/signup", userInfo)
       .then((res) => {
@@ -67,10 +67,10 @@ function SignUp() {
                       type="text"
                       placeholder="Enter your First Name"
                       className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
-                      {...register("firstname", { required: true })}
+                      {...register("firstName", { required: true })}
                     />
                     <br />
-                    {errors.firstname && (
+                    {errors.firstName && (
                       <span className="text-red-500 font-serif text-xs">
                         first name is required
                       </span>
@@ -85,10 +85,10 @@ function SignUp() {
                       type="text"
                       placeholder="Enter your Last Name"
                       className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
-                      {...register("lastname", { required: true })}
+                      {...register("lastName", { required: true })}
                     />
                     <br />
-                    {errors.lastname && (
+                    {errors.lastName && (
                       <span className="text-red-500 font-serif text-xs">
                         last name is required
                       </span>

@@ -43,7 +43,6 @@ export const login=async(req,res)=>{
                     lastName:user.lastName,
                     phone:user.phone,
                     email:user.email
-
                 }})
             }
 
