@@ -18,12 +18,12 @@ function FreeCourses() {
         const response = await axios.get(
           "http://localhost:4545/learn/getcourses"
         );
-        console.log(response.data);
+        // console.log(response.data);
         const data = response.data.filter(
           ({ category }) => category === "Free"
         );
         setFreeCourse(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -40,7 +40,7 @@ function FreeCourses() {
     speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 3,
-    initialSlide: 2,
+    initialSlide: 1,
     responsive: [
       {
         breakpoint: 1024,

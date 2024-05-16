@@ -4,6 +4,7 @@ import LoginOpen from "./Login";
 
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 function SignUp() {
   const {
@@ -27,14 +28,18 @@ function SignUp() {
       .then((res) => {
         console.log(res.data);
         if (res.data) {
-          alert("signup successfully");
+          toast.success("signup successfull!", { position: "top-right" });
         }
+        localStorage.setItem("Users", JSON.stringify(res.data)); //local-storage
       })
       .catch((err) => {
         // alert("Error : " + err);
         if (err.response) {
           console.log(err);
           alert("Error : " + err.response.data.message);
+          toast.error("Error : " + err.response.data.message, {
+            position: "top-right",
+          });
         }
       });
   };
@@ -42,11 +47,11 @@ function SignUp() {
   let Loginhere = () => document.getElementById("my_modal_3").showModal();
   return (
     <>
-      <div className="flex  md:flex-row max-w-screen-2xl container mx-auto md:px-20 px-4 gap-2 h-screen">
+      <div className="flex  md:flex-row max-w-screen-2xl container mx-auto md:px-20 px-4 gap-2 h-screen ">
         <div className=" w-full md:w-1/2 ">
           <>
             <form onSubmit={handleSubmit(onSubmit)} method="">
-              <div className="bg-white text-black dark:bg-slate-800 dark:text-white  ">
+              <div className=" dark:bg-slate-800 dark:text-white  ">
                 <div className="flex justify-between mt-3 md:px-16">
                   <h3 className="font-bold font-serif text-indigo-700 hover:text-indigo-500 text-2xl flex items-center justify-center">
                     Sign up

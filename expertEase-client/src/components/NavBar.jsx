@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import LoginOpen from "../../src/components/Login";
+import { useAuth } from "../context/AuthProvider";
 
 function NavBar() {
+
   // used to navigate pages from react-router-dom
   const navigate = useNavigate();
 

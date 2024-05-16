@@ -16,7 +16,7 @@ export const signup=async(req,res)=>{
 
             const createdUser=new userCollections({firstName:firstName,lastName:lastName,phone:phone,email:email,password:hashPassword})
             await createdUser.save()
-             res.status(201).json({message:'user created successfully'})
+            return res.status(201).json({message:'user created successfully',createdUser})
     } catch (error)
     {
         console.log(error.message);
@@ -49,6 +49,6 @@ export const login=async(req,res)=>{
 
     } catch (error) {
         console.log(error.message);
-        res.status(500).json({message:'internal server error'});
+        res.status(500).json({message:'"No user found"'});
     }
 }

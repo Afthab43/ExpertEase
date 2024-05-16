@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
 function LoginOpen() {
   const {
     register,
@@ -7,7 +9,34 @@ function LoginOpen() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+      email: data.email,
+      password: data.password,
+    };
+    // console.log(data);
+    // console.log(userInfo);
+    await axios
+      .post("http://localhost:4545/user/login", userInfo)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          // alert("login successfully");
+          toast.success("login successfull!", { position: "top-right" });
+        }
+        localStorage.setItem("Users", JSON.stringify(res.data)); //local-storage
+      })
+      .catch((err) => {
+        // alert("Error : " + err);
+        if (err.response) {
+          console.log(err);
+          // alert("Error : " + err.response.data.message);
+          toast.error("Error : " + err.response.data.message, {
+            position: "top-right",
+          });
+        }
+      });
+  };
 
   return (
     <div>
@@ -29,10 +58,10 @@ function LoginOpen() {
             </h3>
             <div className="mt-8 font-serif flex justify-center flex-col items-center">
               <div className="">
-                <label htmlFor="email">Email </label>
+                <label htmlFor="Email">Email </label>
                 <br />
                 <input
-                  id="email"
+                  id="Email"
                   type="email"
                   placeholder="Enter your email"
                   className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
@@ -47,10 +76,10 @@ function LoginOpen() {
               </div>
 
               <div className="mt-5">
-                <label htmlFor="pass">Password </label>
+                <label htmlFor="pwd">Password </label>
                 <br />
                 <input
-                  id="pass"
+                  id="pwd"
                   type="password"
                   placeholder="Enter your password"
                   className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
