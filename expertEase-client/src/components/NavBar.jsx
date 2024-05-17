@@ -76,10 +76,16 @@ function NavBar() {
         </Link>
       </li>
       <li>
-        <Link className="font-medium"> About</Link>
+        <Link to="/about" className="font-medium">
+          {" "}
+          About
+        </Link>
       </li>
       <li>
-        <Link className="font-medium"> Contact</Link>
+        <Link to="/contact" className="font-medium">
+          {" "}
+          Contact
+        </Link>
       </li>
     </>
   );
