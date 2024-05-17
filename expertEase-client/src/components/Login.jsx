@@ -22,9 +22,13 @@ function LoginOpen() {
         console.log(res.data);
         if (res.data) {
           // alert("login successfully");
-          toast.success("login successfull!", { position: "top-right" });
+          toast.success("login successfull!", { position: "top-center" });
+          setTimeout(() => {
+            document.getElementById("my_modal_3").close();
+            window.location.reload();
+            localStorage.setItem("Users", JSON.stringify(res.data)); //local-storage
+          }, 3000);
         }
-        localStorage.setItem("Users", JSON.stringify(res.data)); //local-storage
       })
       .catch((err) => {
         // alert("Error : " + err);
@@ -32,10 +36,15 @@ function LoginOpen() {
           console.log(err);
           // alert("Error : " + err.response.data.message);
           toast.error("Error : " + err.response.data.message, {
-            position: "top-right",
+            position: "top-center",
           });
+          setTimeout(() => {}, 3000);
         }
       });
+  };
+
+  const closeButton = () => {
+    document.getElementById("my_modal_3").close();
   };
 
   return (
@@ -48,6 +57,7 @@ function LoginOpen() {
               <Link
                 to="/"
                 className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-indigo-700"
+                onClick={closeButton}
               >
                 ✕
               </Link>

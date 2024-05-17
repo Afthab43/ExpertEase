@@ -44,7 +44,6 @@ function SignUp() {
       });
   };
 
-  let Loginhere = () => document.getElementById("my_modal_3").showModal();
   return (
     <>
       <div className="flex  md:flex-row max-w-screen-2xl container mx-auto md:px-20 px-4 gap-2 h-screen ">
@@ -52,7 +51,7 @@ function SignUp() {
           <>
             <form onSubmit={handleSubmit(onSubmit)} method="">
               <div className=" dark:bg-slate-800 dark:text-white  ">
-                <div className="flex justify-between mt-3 md:px-16">
+                <div className="flex justify-between mt-3 md:px-16 md:mt-20">
                   <h3 className="font-bold font-serif text-indigo-700 hover:text-indigo-500 text-2xl flex items-center justify-center">
                     Sign up
                   </h3>
@@ -178,7 +177,7 @@ function SignUp() {
                   <button className="mt-5 bg-indigo-800 hover:bg-indigo-600 text-white px-4 py-1 rounded-lg w-80 h-10">
                     Sign up
                   </button>
-                  <p className="mt-2">
+                  {/* <p className="mt-2">
                     Already have an account?{" "}
                     <span
                       className="underline dark:hover:text-lime-500 cursor-pointer hover:text-lime-500"
@@ -188,7 +187,7 @@ function SignUp() {
                     </span>{" "}
                     now to get started!
                   </p>
-                  <LoginOpen />
+                  <LoginOpen /> */}
                 </div>
               </div>
             </form>

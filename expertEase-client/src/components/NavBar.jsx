@@ -2,9 +2,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import LoginOpen from "../../src/components/Login";
+import Logout from "./Logout";
 import { useAuth } from "../context/AuthProvider";
 
 function NavBar() {
+  //authuser
+  const [authUser, setAuthUser] = useAuth();
+  console.log(authUser);
 
   // used to navigate pages from react-router-dom
   const navigate = useNavigate();
@@ -79,7 +83,7 @@ function NavBar() {
       </li>
     </>
   );
-// click on to login button  will show a modal with form for user to input username and password
+  // click on to login button  will show a modal with form for user to input username and password
   let Loginhere = () => document.getElementById("my_modal_3").showModal();
 
   return (
@@ -187,15 +191,20 @@ function NavBar() {
               </svg>
             </label>
 
-            <div className="">
-              <a
-                className="text-base bg-black text-white px-4 py-1 rounded-lg hover:text-lime-500 duration-300 cursor-pointer"
-                onClick={Loginhere}
-              >
-                Login
-              </a>
-              <LoginOpen />
-            </div>
+            {/* here when logged in it shows the logout button */}
+            {authUser ? (
+              <Logout />
+            ) : (
+              <div className="">
+                <a
+                  className="text-base bg-black text-white px-4 py-1 rounded-lg hover:text-lime-500 duration-300 cursor-pointer"
+                  onClick={Loginhere}
+                >
+                  Login
+                </a>
+                <LoginOpen />
+              </div>
+            )}
           </div>
         </div>
       </div>
