@@ -166,7 +166,7 @@ function NavBar() {
               </label>
             </div>
 
-            {/* dark mode /ligth mode */}
+            {/* dark mode /light mode */}
 
             <label className="swap swap-rotate">
               {/* this hidden checkbox controls the state */}
