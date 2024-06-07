@@ -150,22 +150,24 @@ function SignUp() {
                   <div className="">
                     <label htmlFor="pass">Password </label>
                     <br />
-                    <input
-                      id="pass"
-                      // type="password"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Enter your password"
-                      className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
-                      {...register("password", { required: true })}
-                    />
-                    {/* <FaEye className=" relative dark:text-black md:left-[290px] md:bottom-7" />
+                    <div className="relative">
+                      <input
+                        id="pass"
+                        // type="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter your password"
+                        className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
+                        {...register("password", { required: true })}
+                      />
+                      {/* <FaEye className=" relative dark:text-black md:left-[290px] md:bottom-7" />
                     <FaEyeSlash className=" relative dark:text-black md:left-[290px] md:bottom-11" /> */}
-                    <span
-                      onClick={togglePasswordVisibility}
-                      className=" cursor-pointer relative dark:text-black md:left-[290px] md:bottom-7"
-                    >
-                      {showPassword ? <FaEyeSlash /> : <FaEye />}
-                    </span>
+                      <span
+                        onClick={togglePasswordVisibility}
+                        className=" cursor-pointer absolute dark:text-black left-[290px] bottom-3"
+                      >
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                      </span>
+                    </div>
 
                     <br />
                     {errors.password && (
