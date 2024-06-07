@@ -6,7 +6,16 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
+
 function SignUp() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const {
     register,
     handleSubmit,
@@ -143,11 +152,21 @@ function SignUp() {
                     <br />
                     <input
                       id="pass"
-                      type="password"
+                      // type="password"
+                      type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
                       className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
                       {...register("password", { required: true })}
                     />
+                    {/* <FaEye className=" relative dark:text-black md:left-[290px] md:bottom-7" />
+                    <FaEyeSlash className=" relative dark:text-black md:left-[290px] md:bottom-11" /> */}
+                    <span
+                      onClick={togglePasswordVisibility}
+                      className=" cursor-pointer relative dark:text-black md:left-[290px] md:bottom-7"
+                    >
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </span>
+
                     <br />
                     {errors.password && (
                       <span className="text-red-500 font-serif text-xs">

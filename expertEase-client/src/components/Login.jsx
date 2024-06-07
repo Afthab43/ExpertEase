@@ -2,7 +2,17 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
+
 function LoginOpen() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const passwordToggledVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const {
     register,
     handleSubmit,
@@ -88,13 +98,21 @@ function LoginOpen() {
               <div className="mt-5">
                 <label htmlFor="pwd">Password </label>
                 <br />
-                <input
-                  id="pwd"
-                  type="password"
-                  placeholder="Enter your password"
-                  className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
-                  {...register("password", { required: true })}
-                />
+                <div className="relative">
+                  <input
+                    id="pwd"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    className="w-80 h-10 px-3 border rounded outline-none focus:shadow dark:text-black"
+                    {...register("password", { required: true })}
+                  />
+                  <span
+                    onClick={passwordToggledVisibility}
+                    className=" cursor-pointer absolute right-[10px] top-2 dark:text-black  md:bottom-7"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
+                </div>
                 <br />
                 {errors.password && (
                   <span className="text-red-500 font-serif text-xs">
@@ -109,10 +127,7 @@ function LoginOpen() {
                 </button>
                 <p className="mt-2">
                   Not Registered?{" "}
-                  <Link
-                    className="underline dark:hover:text-lime-500"
-                    to="/signup"
-                  >
+                  <Link className="underline hover:text-lime-500" to="/signup">
                     Sign-up
                   </Link>{" "}
                   now to get started!
