@@ -6,7 +6,7 @@ function Businesses() {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen">
+      <div className="min-h-screen flex flex-col justify-center">
         <Business />
       </div>
       <Footer />

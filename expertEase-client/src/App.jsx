@@ -10,7 +10,7 @@ import Contact from "./contact/Contact";
 function App() {
   //authuser
   const [authUser, setAuthUser] = useAuth();
-  console.log(authUser);
+  console.log(authUser, "App .jsx page");
 
   return (
     <>

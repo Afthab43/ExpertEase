@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -6,8 +6,11 @@ import toast from "react-hot-toast";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import { useAuth } from "../context/AuthProvider";
 
 function LoginOpen() {
+  const toNavigate = useNavigate();
+  const [authUser, setAuthUser] = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const passwordToggledVisibility = () => {
@@ -30,15 +33,16 @@ function LoginOpen() {
       .post("http://localhost:4545/user/login", userInfo)
       .then((res) => {
         console.log(res.data);
-        if (res.data) {
-          // alert("login successfully");
-          toast.success("login successfull!", { position: "top-center" });
-          setTimeout(() => {
-            document.getElementById("my_modal_3").close();
-            window.location.reload();
-            localStorage.setItem("Users", JSON.stringify(res.data)); //local-storage
-          }, 3000);
-        }
+        // alert("login successfully");
+        toast.success("login successfull!", { position: "top-center" });
+        setTimeout(() => {
+          document.getElementById("my_modal_3").close();
+          console.log(res.data, "from login successfull");
+          setAuthUser(res.data);
+          localStorage.setItem("Users", JSON.stringify(res.data)); //local-storage
+          toNavigate("/business");
+          toast.success("Welcome to Premium page");
+        }, 3000);
       })
       .catch((err) => {
         // alert("Error : " + err);
@@ -108,7 +112,7 @@ function LoginOpen() {
                   />
                   <span
                     onClick={passwordToggledVisibility}
-                    className=" cursor-pointer absolute right-[10px] top-2 dark:text-black  md:bottom-7"
+                    className=" cursor-pointer absolute right-[10px] top-3 dark:text-black  md:bottom-7"
                   >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>

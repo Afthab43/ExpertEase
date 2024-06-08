@@ -1,5 +1,5 @@
 import { IoChevronBackOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginOpen from "./Login";
 
 import { useForm } from "react-hook-form";
@@ -11,6 +11,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 
 function SignUp() {
+  const navigateTo = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -39,13 +40,19 @@ function SignUp() {
         if (res.data) {
           toast.success("signup successfull!", { position: "top-right" });
         }
-        localStorage.setItem("Users", JSON.stringify(res.data)); //local-storage
+        // localStorage.setItem("Users", JSON.stringify(res.data)); //local-storage
+
+        setTimeout(() => {
+          navigateTo("/");
+          toast.success("Now Login to see the business page");
+        }, 3000);
+        window.localStorage.reload();
       })
       .catch((err) => {
         // alert("Error : " + err);
         if (err.response) {
           console.log(err);
-          alert("Error : " + err.response.data.message);
+          // alert("Error : " + err.response.data.message);
           toast.error("Error : " + err.response.data.message, {
             position: "top-right",
           });

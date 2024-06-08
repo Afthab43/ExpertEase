@@ -6,6 +6,5 @@ function ContacDetails() {
       </div>
     );
   }
-  
+
   export default ContacDetails;
-  
