@@ -34,7 +34,11 @@ function Logout() {
   const fname = authUser.user.firstName.slice(0, 1).toUpperCase();
   const lname = authUser.user.lastName.slice(0, 1).toUpperCase();
 
-  const firstLetter=(<div className="flex gap-2"><p>{fname}</p>  <p>{lname}</p></div>)
+  const firstLetter = (
+    <div className="flex gap-1">
+      <p>{fname}</p> <p>{lname}</p>
+    </div>
+  );
 
   // const userName = fname + " " + lname;
   // console.log(userName);
@@ -82,10 +86,10 @@ function Logout() {
   return (
     <div>
       <button
-        className="flex px-[10px] py-[13px] rounded-badge w-auto bg-black text-white  cursor-pointer hover:text-lime-500 hover:bg-black duration-300"
+        className="flex px-[8px] py-[10px] rounded-badge w-auto bg-black text-white  cursor-pointer hover:text-lime-500 hover:bg-black duration-300"
         onClick={detailsFunc}
       >
-        {/* only two characters available here */}
+        {/* only two chara3cters available here */}
         {/* {userName} */}
         {firstLetter}
         {/* first name of the user */}
