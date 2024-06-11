@@ -64,26 +64,25 @@ function NavBar() {
   let navItems = (
     <>
       <li>
-        <Link to="/" className="font-medium">
-          {" "}
+        <Link
+          to="/"
+          className="font-medium dark:text-white "
+        >
           Learn
         </Link>
       </li>
       <li>
-        <Link to="/business" className="font-medium">
-          {" "}
+        <Link to="/business" className="font-medium dark:text-white">
           Business
         </Link>
       </li>
       <li>
-        <Link to="/about" className="font-medium">
-          {" "}
+        <Link to="/about" className="font-medium dark:text-white">
           About
         </Link>
       </li>
       <li>
-        <Link to="/contact" className="font-medium">
-          {" "}
+        <Link to="/contact" className="font-medium dark:text-white">
           Contact
         </Link>
       </li>
@@ -127,28 +126,32 @@ function NavBar() {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52  dark:bg-slate-800 dark:text-white dark:border "
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52  dark:bg-slate-800 dark:text-white dark:border"
               >
                 {navItems}
               </ul>
             </div>
             <a
               onClick={learnPage}
-              className=" text-2xl font-bold cursor-pointer text-indigo-700  dark:text-lime-400 font-serif"
+              className=" text-2xl font-bold cursor-pointer  text-indigo-700  dark:text-lime-400 font-serif"
             >
               ExpertEase
             </a>
           </div>
-          <div className="navbar-end space-x-3">
-            <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1">{navItems}</ul>
+          <div className="navbar-end space-x-2 ">
+            <div className="navbar-center hidden lg:flex ">
+              <ul className="menu menu-horizontal px-1 lg:-ml-4 md:-ml-10">{navItems}</ul>
             </div>
             {/* search bar label */}
             <div className="hidden md:block">
               <label className="px-2 py-1 border rounded-lg flex items-center gap-2">
                 <input
                   type="text"
-                  className="grow outline-none dark:bg-slate-800 dark:text-white  bg-base-200"
+                  className={`grow outline-none  dark:bg-slate-800 dark:text-white  bg-base-200 ${
+                    sticky
+                      ? " dark:bg-slate-900 dark:text-white duration-300 "
+                      : " dark:bg-slate-800 dark:text-white duration-0 "
+                  } `}
                   placeholder="Search"
                 />
                 <svg

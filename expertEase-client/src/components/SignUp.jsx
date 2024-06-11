@@ -44,7 +44,7 @@ function SignUp() {
 
         setTimeout(() => {
           navigateTo("/");
-          toast.success("Now Login to see the business page");
+          toast.success("Now Login to see the business page",{duration:5000,style:{zIndex:20}});
         }, 3000);
         window.localStorage.reload();
       })
@@ -61,8 +61,8 @@ function SignUp() {
   };
 
   return (
-    <>
-      <div className="flex  md:flex-row max-w-screen-2xl container mx-auto md:px-20 px-4 gap-2 h-screen ">
+    <div className="bg-white text-black dark:bg-slate-800 dark:text-white ">
+      <div className="flex  md:flex-row max-w-screen-2xl container mx-auto md:px-20 px-4 gap-2 h-screen  ">
         <div className=" w-full md:w-1/2 ">
           <>
             <form onSubmit={handleSubmit(onSubmit)} method="">
@@ -175,8 +175,6 @@ function SignUp() {
                         {showPassword ? <FaEyeSlash /> : <FaEye />}
                       </span>
                     </div>
-
-                    <br />
                     {errors.password && (
                       <span className="text-red-500 font-serif text-xs">
                         password is required
@@ -229,7 +227,7 @@ function SignUp() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

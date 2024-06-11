@@ -34,14 +34,17 @@ function LoginOpen() {
       .then((res) => {
         console.log(res.data);
         // alert("login successfully");
-        toast.success("login successfull!", { position: "top-center" });
+        toast.success("login successfull!", {
+          position: "top-center",
+          style: { zIndex: 100 },
+        });
         setTimeout(() => {
           document.getElementById("my_modal_3").close();
           console.log(res.data, "from login successfull");
           setAuthUser(res.data);
           localStorage.setItem("Users", JSON.stringify(res.data)); //local-storage
           toNavigate("/business");
-          toast.success("Welcome to Premium page");
+          toast.success("Welcome to Premium page",{duration:5000});
         }, 3000);
       })
       .catch((err) => {
@@ -112,12 +115,11 @@ function LoginOpen() {
                   />
                   <span
                     onClick={passwordToggledVisibility}
-                    className=" cursor-pointer absolute right-[10px] top-3 dark:text-black  md:bottom-7"
+                    className=" cursor-pointer absolute right-3 top-3 dark:text-black  "
                   >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </div>
-                <br />
                 {errors.password && (
                   <span className="text-red-500 font-serif text-xs">
                     password field is required
