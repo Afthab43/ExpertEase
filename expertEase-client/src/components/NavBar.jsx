@@ -64,25 +64,22 @@ function NavBar() {
   let navItems = (
     <>
       <li>
-        <Link
-          to="/"
-          className="font-medium dark:text-white "
-        >
+        <Link to="/" className="font-medium dark:text-white dark:hover:text-lime-500">
           Learn
         </Link>
       </li>
       <li>
-        <Link to="/business" className="font-medium dark:text-white">
+        <Link to="/business" className="font-medium dark:text-white dark:hover:text-lime-500">
           Business
         </Link>
       </li>
       <li>
-        <Link to="/about" className="font-medium dark:text-white">
+        <Link to="/about" className="font-medium dark:text-white dark:hover:text-lime-500">
           About
         </Link>
       </li>
       <li>
-        <Link to="/contact" className="font-medium dark:text-white">
+        <Link to="/contact" className="font-medium dark:text-white dark:hover:text-lime-500">
           Contact
         </Link>
       </li>
@@ -140,7 +137,9 @@ function NavBar() {
           </div>
           <div className="navbar-end space-x-2 ">
             <div className="navbar-center hidden lg:flex ">
-              <ul className="menu menu-horizontal px-1 lg:-ml-4 md:-ml-10">{navItems}</ul>
+              <ul className="menu menu-horizontal px-1 lg:-ml-4 md:-ml-10">
+                {navItems}
+              </ul>
             </div>
             {/* search bar label */}
             <div className="hidden md:block">
