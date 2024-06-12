@@ -1,7 +1,7 @@
 import { useAuth } from "../context/AuthProvider";
 
 function ProfilePicture() {
-  const [authUser, setAuthUser] = useAuth();
+  const [authUser] = useAuth();
 
   const fname = authUser.user.firstName.slice(0, 1).toUpperCase();
   const lname = authUser.user.lastName.slice(0, 1).toUpperCase();

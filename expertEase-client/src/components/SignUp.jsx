@@ -1,6 +1,5 @@
 import { IoChevronBackOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-import LoginOpen from "./Login";
 
 import { useForm } from "react-hook-form";
 import axios from "axios";

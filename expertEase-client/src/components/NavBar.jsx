@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthProvider";
 
 function NavBar() {
   //authuser
-  const [authUser, setAuthUser] = useAuth();
+  const [authUser] = useAuth();
   console.log(authUser);
 
   // used to navigate pages from react-router-dom
